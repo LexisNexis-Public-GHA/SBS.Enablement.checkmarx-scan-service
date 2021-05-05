@@ -1,0 +1,41 @@
+name: "Run Checkmarx Scan for SBS services"
+description : Runs checkmarx scans for SBS services
+inputs:
+  cx_username:
+    description: the checkmarx username
+    required: yes
+  cx_password:
+    description: the checkmarx password
+    required: yes
+  cx_is_incremental:
+    description: Run an incremental scan (default = false)
+    required: yes
+    default: false
+  cx_force_scan:
+    description: Force a full scan, even if files were already scanned (default = false)
+    required: yes
+    default: false
+  cx_wait_for_scan:
+    description: wait for scan to complete for exiting github action (default = true)
+    required: yes
+    default: true
+  cx_risk_threshold:
+    description: the risk threshold for this job.  if severity is greater than or equal to the threshold, this job will fail. Threshold greater than 100 will disable this feature. (Default = 66)
+    required: yes
+    default: 66
+  cx_team_id:
+    description: the checkmarx team id the project will belong to (default = 27 (sbs team))
+    required: yes
+    default: 27
+  gh_repo_name:
+    description: the name of the repo
+    required: yes
+  gh_branch_name:
+    description: the name of the branch to scan
+    required: yes
+  gh_pem_file:
+    description: the private pem file (this is a password, put it in a github secret)
+    required: yes 
+runs:
+  using: node12
+  main: main.js

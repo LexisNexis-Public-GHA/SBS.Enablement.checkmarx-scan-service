@@ -1,0 +1,17 @@
+{
+    "name": "sbs-checkmarx-scan-service",
+    "version": "1.0.0",
+    "description": "Checkmarx Scan Service for SBS",
+    "main": "main.js",
+    "dependencies": {
+        "@actions/core": "1.2.6",
+        "@actions/github": "4.0.0",
+        "axios": "0.21.1",
+        "fs": "0.0.2",
+        "jsonwebtoken": "^8.5.1"
+    },
+    "scripts": {
+        "run-scan": "node ./main.js",
+        "run-scan-debug": "node --trace-warnings ./main.js"
+    }
+}
