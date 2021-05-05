@@ -4,9 +4,8 @@
     runs-on: [docker, no-db]
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Run the Scan
-        uses: ./actions/run-checkmarx-scan
-        id: run_checkmarx_scan
+        - name: Run Checkmarx Scan for SBS services
+          uses: LexisNexis-Public-GHA/SBS.Enablement.checkmarx-scan-service@1.0.0
         with:
           cx_username: ${{ secrets.CHECKMARX_USERNAME }}
           cx_password: ${{ secrets.CHECKMARX_PASSWORD }}
