@@ -98,10 +98,9 @@ async function main(){
     core.info("==> Updating Scan settings for project with new token");
 
     let token = tokenResponse.token;
-    let branch = `/refs/heads/${branchName}`;
     let githubUrl = `https://no-user:${token}@github.com/${repoName}`
 
-    await cm.upsertGithubScanSettings(githubUrl, projectId, branch)
+    await cm.upsertGithubScanSettings(githubUrl, projectId, branchName)
         .catch((err) => {
             core.error("Something went wrong with updating scan settings in checkmarx");
             throw err;

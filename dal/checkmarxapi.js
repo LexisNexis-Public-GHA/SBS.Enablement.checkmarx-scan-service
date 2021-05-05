@@ -69,7 +69,6 @@ async function CreateNewProectAsync(projectName, teamId, bearerToken){
             return result.data;
         })
         .catch ((err) => {
-            console.log(err);
             return null;
         });
 }
@@ -94,7 +93,6 @@ async function UpsertStandardScanSettingsAsync(projectId, bearerToken){
             return result.data;
         })
         .catch((err) => {
-            console.log(err);
             return null;
         });
 }
@@ -115,7 +113,13 @@ async function UpsertGitScanSettingsAsync(githubUrl, projectId, branchName, bear
 
     return cmInstance.post(url, body, config)
         .then((result) => {
+            
             return result.status === 204;
+
+        })
+        .catch((err) => {
+            console.log(err);
+            throw err;
         });
 
 }
