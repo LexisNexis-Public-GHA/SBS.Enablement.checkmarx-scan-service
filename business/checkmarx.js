@@ -21,6 +21,8 @@ class Checkmarx {
         let createResult = await dal.CreateNewProectAsync(projectName, teamId, this.bearerToken);
         let projectId = createResult.id;
 
+        console.log(createResult);
+
         if (projectId) {
             let scanSettingsResult = await dal.UpsertStandardScanSettingsAsync(projectId);
             if (scanSettingsResult){

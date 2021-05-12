@@ -27,6 +27,9 @@ inputs:
     description: the checkmarx team id the project will belong to (default = 27 (sbs team))
     required: yes
     default: 27
+  cx_project_name:
+    description: the project name 
+    required: yes
   gh_repo_name:
     description: the name of the repo
     required: yes

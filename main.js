@@ -10,6 +10,8 @@ const isIncremental = core.getInput("cx_is_incremental").toLowerCase()  === "tru
 const forceScan     = core.getInput("cx_force_scan").toLowerCase()      === "true";
 const waitForScan   = core.getInput("cx_wait_for_scan").toLowerCase()   === "true";
 const teamId        = core.getInput("cx_team_id");
+// mutable
+let projectName     = core.getInput("cx_project_name");
 
 const riskThreshold = parseInt(core.getInput("cx_risk_threshold"))  || 101;     // fails github action if can result scanRiskSeverity is greater than or equal to riskThreshold
                                                                                 // 101 effectively nullifies it as 100 is the highest scanRiskSeverity is 100
@@ -20,10 +22,8 @@ const repoName      = core.getInput("gh_repo_name");
 const branchName    = core.getInput("gh_branch_name");
 
 // derived variables
-let simpleRepoName      = repoName.split('/').pop();
 let simpleBranchName    = branchName.split('/').pop(); 
-
-let projectName         = `${simpleRepoName}-${simpleBranchName}`;
+projectName = projectName.replace("%branch_name%", simpleBranchName);
 
 core.info(`==> Using ProjectName: ${projectName}`);
 

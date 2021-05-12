@@ -2,7 +2,6 @@
 ## Usage in action
 
     runs-on: [docker, no-db]
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
         - name: Run Checkmarx Scan for SBS services
           uses: LexisNexis-Public-GHA/SBS.Enablement.checkmarx-scan-service@1.0.0
@@ -10,9 +9,12 @@
           cx_username: ${{ secrets.CHECKMARX_USERNAME }}
           cx_password: ${{ secrets.CHECKMARX_PASSWORD }}
           cx_risk_threshold: 101
+          cx_project_name: Accuity - SBS - ProjectName (%branch_name%)
           gh_repo_name: ${{ github.repository }}
           gh_branch_name: ${{ github.ref }}
           gh_pem_file: ${{ secrets.GH_APP_SECRET }}
+
+**Note:** *%branch_name%* is a variable that represents the projects current branch name.
 
 ## Setting up in SBS Repo
 
