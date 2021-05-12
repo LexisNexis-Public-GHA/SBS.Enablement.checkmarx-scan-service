@@ -23,11 +23,18 @@ class Checkmarx {
 
         console.log(createResult);
 
+        console.log(`Using Project ID: ${projectId}`);
+
         if (projectId) {
-            let scanSettingsResult = await dal.UpsertStandardScanSettingsAsync(projectId);
+            let scanSettingsResult = await dal.UpsertStandardScanSettingsAsync(projectId, this.bearerToken);
             if (scanSettingsResult){
+
+                console.log("Got Scan results!");
+
                 return projectId;
             } else {
+
+                console.log("no scan results!");
                 return null;
             }
         }

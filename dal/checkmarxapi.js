@@ -93,6 +93,7 @@ async function UpsertStandardScanSettingsAsync(projectId, bearerToken){
             return result.data;
         })
         .catch((err) => {
+            console.log (err);
             return null;
         });
 }
