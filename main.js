@@ -44,7 +44,7 @@ async function main(){
         {name: "gh_pem_file"    , value: pemfile},
         {name: "gh_repo_name"   , value: repoName},
         {name: "gh_branch_name" , value: branchName},
-        {name: "gh_commit_sha"  , value: comment},
+        {name: "gh_commit_sha"  , value: comment}
     ];
 
     let hasValidationError = false;
