@@ -20,6 +20,7 @@ const riskThreshold = parseInt(core.getInput("cx_risk_threshold"))  || 101;     
 const pemfile       = core.getInput("gh_pem_file");
 const repoName      = core.getInput("gh_repo_name");
 const branchName    = core.getInput("gh_branch_name");
+const comment       = core.getInput("gh_commit_sha")
 
 // derived variables
 let simpleBranchName    = branchName.split('/').pop(); 
@@ -42,7 +43,8 @@ async function main(){
         {name: "cx_password"    , value: password},
         {name: "gh_pem_file"    , value: pemfile},
         {name: "gh_repo_name"   , value: repoName},
-        {name: "gh_branch_name" , value: branchName}
+        {name: "gh_branch_name" , value: branchName},
+        {name: "gh_commit_sha"  , value: comment},
     ];
 
     let hasValidationError = false;
