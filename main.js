@@ -112,7 +112,7 @@ async function main(){
     core.info("==> Scheduling Scan");
 
     // schedule scan.
-    let scanResult = await cm.scheduleScan(projectId, isIncremental, forceScan)
+    let scanResult = await cm.scheduleScan(projectId, isIncremental, forceScan, comment)
                             .catch ((err) => {
                                 core.error("Something went wrong with scheduling the scan");
                                 throw err;

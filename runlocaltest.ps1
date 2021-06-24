@@ -19,5 +19,6 @@ $env:INPUT_gh_pem_file = @"
 
 $env:INPUT_gh_repo_name = "LexisNexis-RBA/SBS.Enablement.sbs-standardbuildtools"
 $env:INPUT_gh_branch_name = "/refs/heads/develop"
+$env:INPUT_gh_commit_sha  = "ecfc62f1b404d7c9c2cfb32cec339850626a03e6" ## update it with latest commit sha
 
 npm run run-scan-debug
