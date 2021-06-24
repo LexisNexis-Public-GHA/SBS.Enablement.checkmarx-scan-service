@@ -38,7 +38,10 @@ inputs:
     required: yes
   gh_pem_file:
     description: the private pem file (this is a password, put it in a github secret)
-    required: yes 
+    required: yes
+  gh_commit_sha:
+    description: the unique id of the commit that triggered scan
+    required: yes    
 runs:
   using: node12
   main: main.js

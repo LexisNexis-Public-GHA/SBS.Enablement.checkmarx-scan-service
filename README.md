@@ -13,6 +13,7 @@
           gh_repo_name: ${{ github.repository }}
           gh_branch_name: ${{ github.ref }}
           gh_pem_file: ${{ secrets.GH_APP_SECRET }}
+          gh_commit_sha: ${{ github.sha }}
 
 **Note:** *%branch_name%* is a variable that represents the projects current branch name.
 

@@ -44,8 +44,8 @@ class Checkmarx {
         return await dal.UpsertGitScanSettingsAsync(githubUrl, projectId, branchName, this.bearerToken)
     };
 
-    scheduleScan = async(projectId, isIncremental, forceScan) => {
-        return await dal.ScheduleScanAsync(projectId, isIncremental, forceScan, "testing node app", this.bearerToken );
+    scheduleScan = async(projectId, isIncremental, forceScan, comment) => {
+        return await dal.ScheduleScanAsync(projectId, isIncremental, forceScan, comment, this.bearerToken );
     }
 
     checkScan = async (scanId) => {
