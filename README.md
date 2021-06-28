@@ -1,4 +1,10 @@
 # Checkmarx Scan Service for SBS 
+
+## WE HAVE MOVED!!!  This repo is no longer used and will be removed at some point in the future. 
+
+https://github.com/marketplace/actions/lnrs-checkmarx-scan-service
+
+
 ## Usage in action
 
     runs-on: [docker, no-db]
